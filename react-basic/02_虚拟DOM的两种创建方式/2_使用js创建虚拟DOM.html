@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2使用js创建虚拟DOM</title>
+</head>
+
+<body>
+    <!-- 注释的快捷方式:Ctrl+/ -->
+    <!-- 创建一个"容器" -->
+    <div id="test"></div>
+    <!-- 引入js,是需要分顺序的 -->
+    <!-- 引入react核心库  引入它全局有React-->
+    <script type="text/javascript" src="../js/react.development.js"></script>
+    <!-- 引入react-dom, 用于支持react操作DOM ,引入它全局有ReactDOM-->
+    <script type="text/javascript" src="../js/react-dom.development.js"></script>
+
+
+
+    <script type="text/javascript">
+        // 1:创建虚拟DOM 
+        // React.createElement(节点标签,{标签属性},值),对于嵌套多的需要多次 React.createElement
+        const VDOM = React.createElement('h1', { 'id': 'title' }, React.createElement('span', {}, 'Hello React'))
+        // 2:渲染虚拟DOM到页面
+        // ReactDOM.render(虚拟DOM,容器)
+        ReactDOM.render(VDOM, document.getElementById('test'))
+
+
+
+    </script>
+
+</body>
+
+</html>

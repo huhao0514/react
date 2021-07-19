@@ -30,9 +30,17 @@
         const myData = "HellO REACT";
         //1:创建虚拟DOM
         const VDOM = (
-            <h2 className="title" id={myId.toLowerCase()}>
-                <span>{myData.toLowerCase()}</span>
-            </h2>
+            <div>
+                <h2 className="title" id={myId.toLowerCase()}>
+                    <span style={{ color: 'white', fontSize: '20px' }}>{myData.toLowerCase()}</span>
+                </h2>
+                <h2 className="title" id={myId.toLowerCase()+'2'}>
+                    <span style={{ color: 'white', fontSize: '20px' }}>{myData.toLowerCase()}</span>
+                </h2>
+                <input type="text"></input>
+            </div>
+
+
         )
         //toLowerCase一定要加(),否则渲染不成功
         //2:渲染虚拟DOM到页面
@@ -43,6 +51,12 @@
                     1:定义虚拟DOM时,不要加引号
                     2:标签中混入js表达式时要用{}
                     3:样式的类名指定不要用class,要用className,因为class为ES6中定义类的关键字
+                    4:内联样式,要用style={{key:'value'}}的形式去写
+                    5:虚拟DOM必须只有一个根标签
+                    6:标签必须闭合
+                    7:标签首字母:
+                        (1).若小写字母开头,则将该标签转为html中同名元素,若html中无同名标签,则报错
+                        (2).若大写字母开头,react就去渲染对应的组件,若组件没有定义,则报错
         */
     </script>
 

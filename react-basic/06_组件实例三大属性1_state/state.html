@@ -20,15 +20,41 @@
 
     <script type="text/babel">
 
-       //1:创建组件
-       class Weather extends React.Component{
-           render(){
-               return <h2>今天天气很凉爽</h2>
-           }
-       }
+        //1:创建组件
+        class Weather extends React.Component {
+            constructor(props) {
+                super(props)
+                //初始状态
+                this.state = { isHot: false }
+            }
+            render() {
+                // 读取状态
+                const { isHot } = this.state
+                //react中绑定事件的方式
+                //onClick={demo}是一个赋值语句,要把demo这个函数交给onClick作为回调,等点击的时候,调用demo
+                return <h2 id="title" onClick={demo}>今天天气很{isHot ? '炎热' : '凉爽'}</h2> //React中重写了js中原生的事件方法,比如onclick在react中为onClick,第二个单词首字母大写
+            }
+        }
 
-       //2:渲染组件到页面中
-       ReactDOM.render(<Weather/>,document.getElementById("test"))
+        //2:渲染组件到页面中
+        ReactDOM.render(<Weather />, document.getElementById("test"))
+
+
+        // const title = document.getElementById("title");
+        // title.addEventListener('click', () => {
+        //     console.log('标题被点击')
+        // })
+
+        // const title=document.getElementById("title");
+        // title.onclick=()=>{
+        //     console.log('标题被点击')
+        // }
+
+        //尽量不要写上面两种方式,进行事件绑定
+        function demo() {
+            console.log('标题被点击')
+        }
+
     </script>
 
 </body>
